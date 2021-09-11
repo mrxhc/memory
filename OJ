@@ -1,0 +1,97 @@
+def add(id, name, score):
+    nax = {'i': id, 'n': name, 's': score}
+    info.append(nax)
+
+
+def show():
+    for v in info:
+        r = 0
+        for k in v.values():
+            r += 1
+            if r != 3:
+                print(k, end=' ')
+            elif r == 3:
+                print(k, end='')
+        print('\n', end='')
+
+
+def size():
+    print(len(info))
+
+
+def find(aa):
+    r = 0
+    p = -1
+    for t in info:
+        p += 1
+        if t['n'] == aa:
+            print(p)
+            r = 1
+    if r == 0:
+        print('-1')
+
+
+def delete(ab):
+    p = -1
+    r = 0
+    for w in info:
+        p += 1
+        for k in w.values():
+            if k == ab:
+                del info[p]
+                r = 1
+                break
+        if r == 1:
+            break
+
+
+def get(ac):
+    r = 0
+    p = -1
+    f = 0
+    for q in info:
+        p += 1
+        if str(p) == ac:
+            for k in q.values():
+                f += 1
+                if f != 3:
+                    print(k, end=' ')
+                elif f == 3:
+                    print(k, end='')
+                r = 1
+            print('\n', end='')
+            break
+    if r == 0:
+        print('over limit')
+
+
+info = []
+x = int(input())
+for y in range(x):
+    idd, na, sc = input().split()
+    add(idd, na, sc)
+
+d = int(input())
+for y in range(d):
+    n = input()
+    u = 0
+    for i in n.split():
+        u += 1
+    if u == 1:
+        if n == 'show':
+            show()
+        elif n == 'size':
+            size()
+    elif u == 2:
+        z, a = n.split()
+        if z == 'find':
+            find(a)
+        elif z == 'del':
+            delete(a)
+        elif z == 'get':
+            get(a)
+    elif u == 4:
+        z, a, b, c = n.split()
+        if z == 'add':
+            add(a, b, c)
+
